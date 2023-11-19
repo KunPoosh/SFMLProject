@@ -16,6 +16,8 @@ AssetManager::AssetManager() {
 
 	//读取字体"黑体"
 	loadFont("simhei", "Asset/Font/simhei.ttf");
+	//读取字体"幼圆"
+	loadFont("SIMYOU", "Asset/Font/SIMYOU.TTF");
 
 	//读取图片"酱可-主菜单"
 	loadTexture("JumkoMenu", "Asset/Picture/JumkoMenu.png");

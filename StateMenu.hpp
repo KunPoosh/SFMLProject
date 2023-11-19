@@ -5,6 +5,7 @@
 #include "Button.hpp"
 #include "StateManager.hpp"
 #include "AssetManager.hpp"
+#include "AudioManager.hpp"
 
 
 // -------------------- 类设计 --------------------
@@ -44,15 +45,21 @@ private:
 
     //开始游戏的按钮
     Button startButton;
-
     //鉴赏模式
     Button galleryButton;
-
     //游戏设置的按钮
     Button settingsButton;
-
+    //关于
+    Button aboutButton;
     //退出游戏
     Button exitButton;
+
+    //是否选择按钮，用于播放音效
+    bool isSelectStare;
+    bool isSelectGallery;
+    bool isSelectSettings;
+    bool isSelectAbout;
+    bool isSelectExit;
 
     //...
     //...

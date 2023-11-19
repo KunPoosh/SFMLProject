@@ -6,6 +6,7 @@
 #include "StateMenu.hpp"
 #include "StateSetting.hpp"
 #include "AssetManager.hpp"
+#include "AudioManager.hpp"
 
 int main() {
 	//程序入口
@@ -29,8 +30,14 @@ int main() {
 
 	//创建场景管理器
 	StateManager stateManager;
+
+	//使用音频管理器
+	AudioManager& audioManager = AudioManager::getInstance();
+
 	//将场景管理器初始化场景设置为主界面(使用智能指针)
 	stateManager.changeState(std::make_unique<StateMenu>(stateManager));
+	//默认初始播放BGM
+	audioManager.playMusic("MenuMusic1", true);
 
 	//----------------游戏主循环------------------//
 	while (window.isOpen()) {
