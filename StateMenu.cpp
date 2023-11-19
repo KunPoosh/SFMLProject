@@ -99,25 +99,27 @@ void StateMenu::handleInput(sf::RenderWindow& window){
             }
 
             //在按钮鉴赏模式的上方
-            if (galleryButton.isMouseOver(window)) {
+            else if (galleryButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
             }
 
             //在按钮"设置"的上方
-            if (settingsButton.isMouseOver(window)) {
+            else if (settingsButton.isMouseOver(window)) {
                 //将场景切换到设置界面
                 stateManager.changeState(stateManager.createState("StateSetting"));
                 audioManager.playSound("ClickButton");
             }
 
             //在按钮关于的上方
-            if (aboutButton.isMouseOver(window)) {
+            else if (aboutButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
             }
 
             //在按钮退出的上方
-            if (exitButton.isMouseOver(window)) {
+            else if (exitButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
+                window.close();
+                return;
             }
 
         }

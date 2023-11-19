@@ -1,2 +1,8 @@
-﻿  StateMenu.cpp
+﻿  AudioManager.cpp
+  Main.cpp
+  StateManager.cpp
+  StateMenu.cpp
+  StateSetting.cpp
+  正在生成代码...
+D:\MyCode\MySFMLProject\SFMLProject\SFMLProject\StateManager.cpp(43): warning C4715: “StateManager::createState”: 不是所有的控件路径都返回值
   SFMLProject.vcxproj -> D:\MyCode\MySFMLProject\SFMLProject\x64\Debug\SFMLProject.exe

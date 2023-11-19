@@ -48,6 +48,9 @@ int main() {
 		//进行场景的普通的每帧更新
 		stateManager.updateCurrentState();
 
+		//清理播放的音效
+		audioManager.update();
+
 		//清空缓冲
 		window.clear(sf::Color(250, 240, 200));
 

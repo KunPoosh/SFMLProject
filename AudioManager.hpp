@@ -28,8 +28,6 @@ public:
     void loadSound(const std::string& name, const std::string& filename, float volume);
     //播放音效，将播放的音效加入一个列表，使得单个音效可以同时进行多个播放。
     void playSound(const std::string& name);
-    //停止播放音效（一般不用，音效都很短）
-    void stopSound(const std::string& name);
 
     //读取音乐，同时设置音乐音量初始值
     void loadMusic(const std::string& name, const std::string& filename, float volume);
@@ -50,10 +48,10 @@ private:
     //构造方法
     AudioManager();
 
-    //存储所以的音效Buffer
+    //存储所有的音效Buffer
     std::map<std::string, sf::SoundBuffer> soundBuffers;
-    //所有的音效
-    std::map<std::string, sf::Sound> sounds;
+    // 正在播放的音效列表,使用智能指针
+    std::list<std::unique_ptr<sf::Sound>> playingSounds;
     // 使用 unique_ptr 管理 sf::Music 对象
     std::map<std::string, std::unique_ptr<sf::Music>> music; 
     // 存储每个音效的初始音量
@@ -63,8 +61,11 @@ private:
 
     // 指向当前播放的 BGM
     sf::Music* currentBGM = nullptr; 
-    // 正在播放的音效列表
-    std::list<sf::Sound> playingSounds; 
+
+    //音效音量
+    float volumeSound;
+    //音乐音量
+    float volumeMusic;
 };
 
 #endif // AUDIOMANAGER_HPP
