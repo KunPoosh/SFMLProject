@@ -30,28 +30,28 @@ StateMenu::StateMenu(StateManager& manager)
     BackgroundImage.setPosition(0, 0);
 
     //设置"开始游戏"按钮的位置等信息
-    startButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, "新游戏", 50);
-    startButton.setColor(sf::Color(255, 0, 0, 0), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180,100));
+    startButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"新游戏", 50);
+    startButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180,130));
     startButton.setPosition(50, 350, 400, 100);
 
     //设置"鉴赏模式"按钮的位置等信息
-    galleryButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, "鉴赏模式", 50);
-    galleryButton.setColor(sf::Color(255, 0, 0, 0), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
+    galleryButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"鉴赏模式", 50);
+    galleryButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
     galleryButton.setPosition(50, 450, 400, 100);
 
     //设置"设置"按钮的位置等信息
-    settingsButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, "设置", 50);
-    settingsButton.setColor(sf::Color(255, 0, 0, 0), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
+    settingsButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"设置", 50);
+    settingsButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
     settingsButton.setPosition(50, 550, 400, 100);
 
     //设置"关于"按钮的位置等信息
-    aboutButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, "关于", 50);
-    aboutButton.setColor(sf::Color(255, 0, 0, 0), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
+    aboutButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"关于", 50);
+    aboutButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
     aboutButton.setPosition(50, 650, 400, 100);
 
     //设置"退出"按钮的位置等信息
-    exitButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, "退出游戏", 50);
-    exitButton.setColor(sf::Color(255, 0, 0, 0), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
+    exitButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"退出游戏", 50);
+    exitButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
     exitButton.setPosition(50, 750, 400, 100);
 
     isSelectStare = false;

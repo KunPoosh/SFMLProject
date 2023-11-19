@@ -39,6 +39,9 @@
     <ClCompile Include="AudioManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SettingsManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.hpp">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AudioManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

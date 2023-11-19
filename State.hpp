@@ -38,8 +38,6 @@ public:
 
 protected:
 
-	//将String转化成能显示的文字
-	std::wstring convertToWideString(const std::string& str);
 };
 
 

@@ -178,7 +178,7 @@ void Button::setPosition(float x, float y, float width, float height) {
 }
 
 
-void Button::setFont(const sf::Font& font, sf::Color fontColor, const std::string& content, unsigned int characterSize) {
+void Button::setFont(const sf::Font& font, sf::Color fontColor, const std::wstring& content, unsigned int characterSize) {
 	//设置按钮的字体和内容
 	/*
 	负责人: 波波沙
@@ -196,30 +196,9 @@ void Button::setFont(const sf::Font& font, sf::Color fontColor, const std::strin
 	*/
 	//----------------------实现------------------------//
 
-	//转化String
-	std::wstring wideContent = convertToWideString(content);
 	//设置字体，内容，字号，颜色
 	text.setFont(font);
-	text.setString(wideContent);
+	text.setString(content);
 	text.setCharacterSize(characterSize);
 	text.setFillColor(fontColor);
-}
-
-std::wstring Button::convertToWideString(const std::string& str) {
-	//将String转化成能显示的文字
-	/*
-	负责人: 波波沙
-
-	功能:
-		解决按钮上的中文乱码的问题
-
-	参数:
-		const std::string& str  //输入的正常String
-
-	返回值: std::wstring
-	*/
-	//----------------------实现------------------------//
-
-	std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-	return converter.from_bytes(str);
 }

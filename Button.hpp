@@ -41,7 +41,7 @@ public:
 	void setPosition(float x, float y, float width, float height);
 
 	//设置按钮的字体和内容和颜色
-	void setFont(const sf::Font& font, sf::Color fontColor, const std::string& content, unsigned int characterSize);
+	void setFont(const sf::Font& font, sf::Color fontColor, const std::wstring& content, unsigned int characterSize);
 
 	//悬停时改变按钮的颜色。
 	void onHover();
@@ -74,8 +74,6 @@ private:
 	//选择时的颜色
 	sf::Color colorChose;
 
-	//将String转化成能显示的文字
-	std::wstring convertToWideString(const std::string& str);
 
 };
 

@@ -6,7 +6,7 @@ StateSetting::StateSetting(StateManager& manager) : stateManager(manager) {
 	AssetManager& assetManager = AssetManager::getInstance();
 
 	//设置"设置"按钮的位置等信息。
-	home.setFont(assetManager.getFont("simhei"), sf::Color::Black, "返回", 24);
+	home.setFont(assetManager.getFont("simhei"), sf::Color::Black, L"返回", 24);
 	home.setColor(sf::Color(200, 200, 200), sf::Color(100, 100, 100), sf::Color(150, 150, 150));
 	home.setPosition(100, 600, 200, 40);
 

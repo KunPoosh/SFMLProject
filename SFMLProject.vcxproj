@@ -136,6 +136,7 @@
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SettingsManager.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMenu.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="AudioManager.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="SettingsManager.hpp" />
     <ClInclude Include="StateMenu.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateManager.hpp" />
