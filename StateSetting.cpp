@@ -2,20 +2,27 @@
 #include "StateMenu.hpp"
 
 StateSetting::StateSetting(StateManager& manager) : stateManager(manager) {
+	//¹¹Ôì·½·¨
 
+	//ËØ²Ä¹ÜÀíÆ÷µ¥Àı
 	AssetManager& assetManager = AssetManager::getInstance();
 
-	//è®¾ç½®"è®¾ç½®"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯ã€‚
-	home.setFont(assetManager.getFont("simhei"), sf::Color::Black, L"è¿”å›", 24);
-	home.setColor(sf::Color(200, 200, 200), sf::Color(100, 100, 100), sf::Color(150, 150, 150));
-	home.setPosition(100, 600, 200, 40);
+	//ÉèÖÃ"ÉèÖÃ"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢¡£
+	home.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"·µ»Ø", 30);
+	home.setColor(sf::Color(200, 200, 200,150), sf::Color(100, 100, 100,150), sf::Color(150, 150, 150,150));
+	home.setPosition(50, 50, 200, 50);
 
-	//åˆå§‹åŒ–æ ‡é¢˜
+	//ÉèÖÃ±³¾°Í¼Æ¬
+	BackgroundImage.setTexture(assetManager.getTexture("JumkoMenu"));
+	// Ê¹Í¼Æ¬±ä°µµ«ÈÔÈ»¿É¼û
+	BackgroundImage.setColor(sf::Color(128, 128, 128, 255));
+
+	//³õÊ¼»¯±êÌâ
 	title.setFont(assetManager.getFont("simhei"));
-	title.setFillColor(sf::Color::Black);
-	title.setCharacterSize(50);
+	title.setFillColor(sf::Color::White);
+	title.setCharacterSize(70);
 	title.setString("Settings");
-	title.setPosition(250, 100);
+	title.setPosition(350, 50);
 }
 
 void StateSetting::handleInput(sf::RenderWindow& window) {
@@ -23,11 +30,11 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event))
 	{
-		//å½“ç‚¹å‡»å…³é—­æ—¶å…³é—­çª—å£
+		//µ±µã»÷¹Ø±ÕÊ±¹Ø±Õ´°¿Ú
 		if (event.type == sf::Event::Closed) {
 			window.close();
 		}
-		// ... å¤„ç†æŒ‰é’®ç‚¹å‡»äº‹ä»¶ï¼Œä½¿ç”¨stateManager.changeState(...)
+		// ... ´¦Àí°´Å¥µã»÷ÊÂ¼ş£¬Ê¹ÓÃstateManager.changeState(...)
 		if (event.type == sf::Event::MouseButtonPressed) {
 			if (this->home.isMouseOver(window)) {
 				this->stateManager.changeState(std::make_unique<StateMenu>(stateManager));
@@ -38,7 +45,7 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 				home.onHover();
 			}
 			else {
-				//å½“é¼ æ ‡ä¸å†æ‚¬åœåœ¨æŒ‰é’®ä¸Šæ—¶æ¢å¤åŸå§‹é¢œè‰²
+				//µ±Êó±ê²»ÔÙĞüÍ£ÔÚ°´Å¥ÉÏÊ±»Ö¸´Ô­Ê¼ÑÕÉ«
 				home.resetColor();
 			}
 		}
@@ -47,13 +54,16 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 }
 
 void StateSetting::update() {
-	// ... æ›´æ–°é€»è¾‘
+	// ... ¸üĞÂÂß¼­
 }
 
 void StateSetting::draw(sf::RenderWindow& window) {
-	// ... ç»˜åˆ¶æŒ‰é’®
+	//×îÏÈäÖÈ¾±³¾°Í¼Æ¬
+	window.draw(BackgroundImage);
+
+	// ... »æÖÆ°´Å¥
 	this->home.draw(window);
 
-	//ç»˜åˆ¶æ–‡å­—
+	//»æÖÆÎÄ×Ö
 	window.draw(this->title);
 }

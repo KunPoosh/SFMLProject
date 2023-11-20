@@ -1,7 +1,15 @@
 ﻿  Main.cpp
+D:\myCppWork\SFMLProject\SFMLProject\Main.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\StateManager.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\State.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\AssetManager.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\StateMenu.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\Button.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\AudioManager.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\StateSetting.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\SettingsManager.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   SettingsManager.cpp
-  StateManager.cpp
-  StateSetting.cpp
+D:\myCppWork\SFMLProject\SFMLProject\SettingsManager.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\myCppWork\SFMLProject\SFMLProject\SettingsManager.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   正在生成代码...
-D:\MyCode\MySFMLProject\SFMLProject\SFMLProject\StateManager.cpp(43): warning C4715: “StateManager::createState”: 不是所有的控件路径都返回值
-  SFMLProject.vcxproj -> D:\MyCode\MySFMLProject\SFMLProject\x64\Debug\SFMLProject.exe
+  SFMLProject.vcxproj -> D:\myCppWork\SFMLProject\x64\Debug\SFMLProject.exe

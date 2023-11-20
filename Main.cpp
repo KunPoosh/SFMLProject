@@ -7,6 +7,7 @@
 #include "StateSetting.hpp"
 #include "AssetManager.hpp"
 #include "AudioManager.hpp"
+#include "SettingsManager.hpp"
 
 int main() {
 	//程序入口
@@ -34,10 +35,16 @@ int main() {
 	//使用音频管理器
 	AudioManager& audioManager = AudioManager::getInstance();
 
+	//使用文件管理器
+	SettingsManager& settingsManager = SettingsManager::getInstance();
+
 	//将场景管理器初始化场景设置为主界面(使用智能指针)
 	stateManager.changeState(std::make_unique<StateMenu>(stateManager));
 	//默认初始播放BGM
 	audioManager.playMusic("MenuMusic1", true);
+
+	//读取一次存档
+	settingsManager.loadSettings("Asset/save.txt");
 
 	//----------------游戏主循环------------------//
 	while (window.isOpen()) {

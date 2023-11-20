@@ -4,6 +4,7 @@
 #include "Button.hpp"
 #include "StateManager.hpp"
 #include "State.hpp"
+#include "AssetManager.hpp"
 
 
 // -------------------- 类设计 --------------------
@@ -29,10 +30,15 @@ public:
 	void draw(sf::RenderWindow& window) override;
 
 private:
+	//常见管理器的引用
 	StateManager& stateManager;
 
+	//返回按钮
 	Button home;
+	//标题字
 	sf::Text title;
+	//主菜单的背景图片
+	sf::Sprite BackgroundImage;
 };
 
 #endif // WINDOW1STATE

@@ -15,10 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="StateMenu.cpp">
@@ -27,45 +42,30 @@
     <ClCompile Include="StateSetting.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SettingsManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="State.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="StateMenu.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="StateSetting.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="AssetManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AudioManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Button.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="SettingsManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="State.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMenu.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StateSetting.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

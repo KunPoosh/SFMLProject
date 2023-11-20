@@ -18,10 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SettingsManager.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="StateMenu.cpp" />
+    <ClCompile Include="StateSetting.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="AudioManager.hpp" />
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="SettingsManager.hpp" />
+    <ClInclude Include="State.hpp" />
+    <ClInclude Include="StateManager.hpp" />
+    <ClInclude Include="StateMenu.hpp" />
+    <ClInclude Include="StateSetting.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d5938221-05ec-423b-b8af-a9f724452a56}</ProjectGuid>
+    <ProjectGuid>{83568658-3733-401e-b2f3-36d6b895c478}</ProjectGuid>
     <RootNamespace>SFMLProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -106,12 +127,12 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>D:\MyCode\SFML\SFML-2.6.1-windows-vc17-64-bit\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\myCppWork\SFML-2.6.1-windows-vc17-64-bit\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\MyCode\SFML\SFML-2.6.1-windows-vc17-64-bit\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\myCppWork\SFML-2.6.1-windows-vc17-64-bit\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-audio-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -131,27 +152,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="AudioManager.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SettingsManager.cpp" />
-    <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateMenu.cpp" />
-    <ClCompile Include="StateManager.cpp" />
-    <ClCompile Include="StateSetting.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AssetManager.hpp" />
-    <ClInclude Include="AudioManager.hpp" />
-    <ClInclude Include="Button.hpp" />
-    <ClInclude Include="SettingsManager.hpp" />
-    <ClInclude Include="StateMenu.hpp" />
-    <ClInclude Include="State.hpp" />
-    <ClInclude Include="StateManager.hpp" />
-    <ClInclude Include="StateSetting.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
