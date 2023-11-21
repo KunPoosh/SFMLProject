@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/MyCode/MySFMLProject/SFMLProject/SFMLProject",
-      "program": "d:/MyCode/MySFMLProject/SFMLProject/SFMLProject/build/Debug/outDebug",
+      "cwd": "d:/MyCode/JumkoProject/Project1/Project1",
+      "program": "d:/MyCode/JumkoProject/Project1/Project1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

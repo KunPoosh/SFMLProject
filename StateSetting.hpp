@@ -24,7 +24,7 @@ public:
 	void handleInput(sf::RenderWindow& window) override;
 
 	//更新（未完成）
-	void update() override;
+	void update(float deltaTime) override;
 
 	//渲染（未完成）
 	void draw(sf::RenderWindow& window) override;

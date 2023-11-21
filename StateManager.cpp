@@ -40,9 +40,10 @@ std::unique_ptr<State> StateManager::createState(const std::string& stateType) {
 		return std::make_unique<StateSetting>(*this);
 	}
 	// ... 其他状态的创建逻辑
+
 }
 
-void StateManager::updateCurrentState() {
+void StateManager::updateCurrentState(float deltaTime) {
 	//更新场景
 	/*
 	负责人: 波波沙
@@ -56,7 +57,7 @@ void StateManager::updateCurrentState() {
 	//----------------------实现------------------------//
 
 	if (currentState) {
-		currentState->update();
+		currentState->update(deltaTime);
 	}
 }
 

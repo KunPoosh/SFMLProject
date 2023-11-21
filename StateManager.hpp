@@ -33,7 +33,7 @@ public:
 	std::unique_ptr<State> createState(const std::string& stateType);
 
 	//更新
-	void updateCurrentState();
+	void updateCurrentState(float deltaTime);
 
 	//下传窗口
 	void handleInputCurrentState(sf::RenderWindow& window);

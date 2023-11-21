@@ -1,121 +1,141 @@
 #include "StateMenu.hpp"
 #include <iostream>
+#include "Animation.hpp"
 
 StateMenu::StateMenu(StateManager& manager)
     : stateManager(manager)
 {
-    //¹¹Ôì·½·¨£¬´«ÈëÒ»¸ö³¡¾°¹ÜÀíÆ÷µÄÒıÓÃ£¬·½±ãµ÷ÓÃ³¡¾°¹ÜÀíÆ÷µÄ·½·¨¡£(Î´Íê³É)
+    //æ„é€ æ–¹æ³•ï¼Œä¼ å…¥ä¸€ä¸ªåœºæ™¯ç®¡ç†å™¨çš„å¼•ç”¨ï¼Œæ–¹ä¾¿è°ƒç”¨åœºæ™¯ç®¡ç†å™¨çš„æ–¹æ³•ã€‚(æœªå®Œæˆ)
     /*
-    ¸ºÔğÈË: ²¨²¨É³
+    è´Ÿè´£äºº: æ³¢æ³¢æ²™
 
-    ¹¦ÄÜ:
-        ³õÊ¼»¯Ö÷³¡¾°£º
-            1.´´½¨°´Å¥£¨ĞÂÓÎÏ·£¬¼øÉÍÄ£Ê½£¬ÉèÖÃ£¬ÓÎÏ·Ö¸ÄÏ£¬ÍË³öÓÎÏ·£©
-            2.´´½¨±³¾°Í¼Æ¬
-            3.´´½¨ÓÎÏ·±êÌâ×Ö
-            4.Ê¹µ±Ç°³¡¾°¶ÔÏó¹ØÁª³¡¾°¹ÜÀíÆ÷¶ÔÏó
+    åŠŸèƒ½:
+        åˆå§‹åŒ–ä¸»åœºæ™¯ï¼š
+            1.åˆ›å»ºæŒ‰é’®ï¼ˆæ–°æ¸¸æˆï¼Œé‰´èµæ¨¡å¼ï¼Œè®¾ç½®ï¼Œæ¸¸æˆæŒ‡å—ï¼Œé€€å‡ºæ¸¸æˆï¼‰
+            2.åˆ›å»ºèƒŒæ™¯å›¾ç‰‡
+            3.åˆ›å»ºæ¸¸æˆæ ‡é¢˜å­—
+            4.ä½¿å½“å‰åœºæ™¯å¯¹è±¡å…³è”åœºæ™¯ç®¡ç†å™¨å¯¹è±¡
 
-    ²ÎÊı:
-        StateManager& manager   //³¡¾°¹ÜÀíÆ÷µ¥Àı£¬¹ØÁªµ½ÀàÖĞµÄ³¡¾°¹ÜÀíÆ÷Ö¸ÕëÉÏ¡£
+    å‚æ•°:
+        StateManager& manager   //åœºæ™¯ç®¡ç†å™¨å•ä¾‹ï¼Œå…³è”åˆ°ç±»ä¸­çš„åœºæ™¯ç®¡ç†å™¨æŒ‡é’ˆä¸Šã€‚
 
-    ·µ»ØÖµ: StateMenu
+    è¿”å›å€¼: StateMenu
     */
-    //----------------------ÊµÏÖ------------------------//
+    //----------------------å®ç°------------------------//
 
-    //Ê¹ÓÃËØ²Ä¹ÜÀíÆ÷
+    //ä½¿ç”¨ç´ æç®¡ç†å™¨
     AssetManager& assetManager = AssetManager::getInstance();
 
-    //ÉèÖÃ±³¾°Í¼Æ¬
+    //è®¾ç½®èƒŒæ™¯å›¾ç‰‡
     BackgroundImage.setTexture(assetManager.getTexture("JumkoMenu"));
     BackgroundImage.setPosition(0, 0);
 
-    //ÉèÖÃ"¿ªÊ¼ÓÎÏ·"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢
-    startButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"ĞÂÓÎÏ·", 50);
-    startButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180,130));
-    startButton.setPosition(50, 350, 400, 100);
+    //è®¾ç½®"å¼€å§‹æ¸¸æˆ"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    startButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"æ–°æ¸¸æˆ", 40);
+    startButton.setColor(sf::Color(200, 200, 200, 100), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180,150));
+    startButton.setPosition(50, 350, 400, 80);
 
-    //ÉèÖÃ"¼øÉÍÄ£Ê½"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢
-    galleryButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"¼øÉÍÄ£Ê½", 50);
-    galleryButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
-    galleryButton.setPosition(50, 450, 400, 100);
+    //è®¾ç½®"é‰´èµæ¨¡å¼"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    galleryButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"é‰´èµæ¨¡å¼", 40);
+    galleryButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
+    galleryButton.setPosition(50, 430, 400, 80);
 
-    //ÉèÖÃ"ÉèÖÃ"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢
-    settingsButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"ÉèÖÃ", 50);
-    settingsButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
-    settingsButton.setPosition(50, 550, 400, 100);
+    //è®¾ç½®"è®¾ç½®"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    settingsButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"è®¾ç½®", 40);
+    settingsButton.setColor(sf::Color(200, 200, 200, 100), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 150));
+    settingsButton.setPosition(50, 510, 400, 80);
 
-    //ÉèÖÃ"¹ØÓÚ"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢
-    aboutButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"¹ØÓÚ", 50);
-    aboutButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 100));
-    aboutButton.setPosition(50, 650, 400, 100);
+    //è®¾ç½®"å…³äº"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    aboutButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"å…³äº", 40);
+    aboutButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
+    aboutButton.setPosition(50, 590, 400, 80);
 
-    //ÉèÖÃ"ÍË³ö"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢
-    exitButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"ÍË³öÓÎÏ·", 50);
-    exitButton.setColor(sf::Color(200, 200, 200, 80), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
-    exitButton.setPosition(50, 750, 400, 100);
+    //è®¾ç½®"æ¸¸æˆç©æ³•"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    howToPlayButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"æ¸¸æˆç©æ³•", 40);
+    howToPlayButton.setColor(sf::Color(200, 200, 200, 100), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 150));
+    howToPlayButton.setPosition(50, 670, 400, 80);
+
+    //è®¾ç½®"é€€å‡º"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯
+    exitButton.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"é€€å‡ºæ¸¸æˆ", 40);
+    exitButton.setColor(sf::Color(200, 200, 200, 50), sf::Color(255, 0, 0, 0), sf::Color(180, 180, 180, 130));
+    exitButton.setPosition(50, 750, 400, 80);
 
     isSelectStare = false;
     isSelectGallery = false;
     isSelectSettings = false;
     isSelectAbout = false;
+    isSelectHowToPlay = false;
     isSelectExit = false;
 
+    // åˆ›å»º TitleAnimation å®ä¾‹
+    std::shared_ptr<TitleAnimation> titleAnimation = std::make_shared<TitleAnimation>();
+
+    EntityManager::getInstance()->addEntity(titleAnimation);
 }
 
 void StateMenu::handleInput(sf::RenderWindow& window){
-    //½«µ±Ç°·¢ÉúµÄÊÂ¼ş£¨Ö÷ÒªÊÇµã»÷°´Å¥µÄÊÂ¼ş£©½øĞĞ´¦Àí£¬²¢ÇÒ·´À¡²Ù×÷µ½µ±Ç°´°¿ÚÖĞ¡£¸´Ğ´»ùÀà·½·¨¡£(Î´Íê³É)
+    //å°†å½“å‰å‘ç”Ÿçš„äº‹ä»¶ï¼ˆä¸»è¦æ˜¯ç‚¹å‡»æŒ‰é’®çš„äº‹ä»¶ï¼‰è¿›è¡Œå¤„ç†ï¼Œå¹¶ä¸”åé¦ˆæ“ä½œåˆ°å½“å‰çª—å£ä¸­ã€‚å¤å†™åŸºç±»æ–¹æ³•ã€‚(æœªå®Œæˆ)
     /*
-    ¸ºÔğÈË: ²¨²¨É³
+    è´Ÿè´£äºº: æ³¢æ³¢æ²™
 
-    ¹¦ÄÜ: ´¦Àí¸÷ÖÖÊÂ¼ş¡£
-            µã»÷ÊÂ¼ş£¬µãµ½¸÷¸÷°´Å¥ÉÏÊ±µÄ²»Í¬¶ÔÓ¦´ëÊ©¡£
+    åŠŸèƒ½: å¤„ç†å„ç§äº‹ä»¶ã€‚
+            ç‚¹å‡»äº‹ä»¶ï¼Œç‚¹åˆ°å„å„æŒ‰é’®ä¸Šæ—¶çš„ä¸åŒå¯¹åº”æªæ–½ã€‚
 
-    ²ÎÊı:
-        sf::RenderWindow& window    //³ÌĞòÖ÷´°¿Ú£¬Ö÷ÒªÓÃÓÚ½øÒ»²½ÏÂ´«¡£
-        sf::Event& event            //Ö÷´°¿ÚÖĞ·¢ÉúµÄÒ»¸öÊÂ¼ş£¬ÓÃÓÚ´¦Àí¡£
+    å‚æ•°:
+        sf::RenderWindow& window    //ç¨‹åºä¸»çª—å£ï¼Œä¸»è¦ç”¨äºè¿›ä¸€æ­¥ä¸‹ä¼ ã€‚
+        sf::Event& event            //ä¸»çª—å£ä¸­å‘ç”Ÿçš„ä¸€ä¸ªäº‹ä»¶ï¼Œç”¨äºå¤„ç†ã€‚
 
-    ·µ»ØÖµ: void
+    è¿”å›å€¼: void
     */
-    //----------------------ÊµÏÖ------------------------//
+    //----------------------å®ç°------------------------//
 
-    //´´½¨Ò»¸öÊÂ¼şÀà£¬ÓÃÀ´½ÓÊÜºÍ´¦ÀíÊÂ¼ş
+    //åˆ›å»ºä¸€ä¸ªäº‹ä»¶ç±»ï¼Œç”¨æ¥æ¥å—å’Œå¤„ç†äº‹ä»¶
     sf::Event event;
 
-    //ÒıÓÃÒôÆµ²¥·Åµ¥Àı
+    //å¼•ç”¨éŸ³é¢‘æ’­æ”¾å•ä¾‹
     AudioManager& audioManager = AudioManager::getInstance();
+    //å¼•ç”¨å®ä½“ç®¡ç†å™¨
+    EntityManager* entityManager = EntityManager::getInstance();
 
     while (window.pollEvent(event))
     {
-        //µ±µã»÷¹Ø±ÕÊ±¹Ø±Õ´°¿Ú
+        //å½“ç‚¹å‡»å…³é—­æ—¶å…³é—­çª—å£
         if (event.type == sf::Event::Closed) {
             window.close();
         }
 
-        //µ±Êó±êµã»÷Ê±ÅĞ¶ÏÕâ¸öË²¼äÊó±êÔÚÄÇ¸ö°´Å¥µÄÉÏ·½
+        //å½“é¼ æ ‡ç‚¹å‡»æ—¶åˆ¤æ–­è¿™ä¸ªç¬é—´é¼ æ ‡åœ¨é‚£ä¸ªæŒ‰é’®çš„ä¸Šæ–¹
         if (event.type == sf::Event::MouseButtonPressed) {
-            //ÔÚ°´Å¥¿ªÊ¼ÓÎÏ·µÄÉÏ·½
+            //åœ¨æŒ‰é’®å¼€å§‹æ¸¸æˆçš„ä¸Šæ–¹
             if (startButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
             }
 
-            //ÔÚ°´Å¥¼øÉÍÄ£Ê½µÄÉÏ·½
+            //åœ¨æŒ‰é’®é‰´èµæ¨¡å¼çš„ä¸Šæ–¹
             else if (galleryButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
             }
 
-            //ÔÚ°´Å¥"ÉèÖÃ"µÄÉÏ·½
+            //åœ¨æŒ‰é’®"è®¾ç½®"çš„ä¸Šæ–¹
             else if (settingsButton.isMouseOver(window)) {
-                //½«³¡¾°ÇĞ»»µ½ÉèÖÃ½çÃæ
+                //å°†åœºæ™¯åˆ‡æ¢åˆ°è®¾ç½®ç•Œé¢
                 stateManager.changeState(stateManager.createState("StateSetting"));
                 audioManager.playSound("ClickButton");
+                //è·³è½¬åœºæ™¯æ—¶æƒ…å†µå½“å‰çš„å®ä½“
+                entityManager->clearAllEntities();
             }
 
-            //ÔÚ°´Å¥¹ØÓÚµÄÉÏ·½
+            //åœ¨æŒ‰é’®å…³äºçš„ä¸Šæ–¹
             else if (aboutButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
             }
 
-            //ÔÚ°´Å¥ÍË³öµÄÉÏ·½
+            //åœ¨æŒ‰é’®å…³äºçš„ä¸Šæ–¹
+            else if (howToPlayButton.isMouseOver(window)) {
+                audioManager.playSound("ClickButton");
+            }
+
+            //åœ¨æŒ‰é’®é€€å‡ºçš„ä¸Šæ–¹
             else if (exitButton.isMouseOver(window)) {
                 audioManager.playSound("ClickButton");
                 window.close();
@@ -124,11 +144,11 @@ void StateMenu::handleInput(sf::RenderWindow& window){
 
         }
 
-        //µ±Êó±êÒÆ¶¯Ê±»ñÈ¡Êó±êÎ»ÖÃ£¬ÅĞ¶ÏÊÇ·ñÔÚÄ³Ò»¸ö°´Å¥ÉÏÃæ£¬ÊÇµÄ»°½²°´Å¥¸Ä±äÑÕÉ«
+        //å½“é¼ æ ‡ç§»åŠ¨æ—¶è·å–é¼ æ ‡ä½ç½®ï¼Œåˆ¤æ–­æ˜¯å¦åœ¨æŸä¸€ä¸ªæŒ‰é’®ä¸Šé¢ï¼Œæ˜¯çš„è¯è®²æŒ‰é’®æ”¹å˜é¢œè‰²
         if (event.type == sf::Event::MouseMoved) {
-            //·µ»Øtrue´ú±íµ±Ç°Êó±êÔÚµ±Ç°"ÉèÖÃ°´Å¥ÉÏ"
+            //è¿”å›trueä»£è¡¨å½“å‰é¼ æ ‡åœ¨å½“å‰"è®¾ç½®æŒ‰é’®ä¸Š"
            
-            //ÔÚ¿ªÊ¼ÓÎÏ·°´Å¥µÄÉÏ·½
+            //åœ¨å¼€å§‹æ¸¸æˆæŒ‰é’®çš„ä¸Šæ–¹
             if (startButton.isMouseOver(window)) {
                 startButton.onHover();
                 if (!isSelectStare) {
@@ -142,7 +162,7 @@ void StateMenu::handleInput(sf::RenderWindow& window){
                 isSelectStare = false;
             }
 
-            //ÔÚ¼øÉÍÄ£Ê½°´Å¥µÄÉÏ·½
+            //åœ¨é‰´èµæ¨¡å¼æŒ‰é’®çš„ä¸Šæ–¹
             if (galleryButton.isMouseOver(window)) {
                 galleryButton.onHover();
                 if (!isSelectGallery) {
@@ -156,7 +176,7 @@ void StateMenu::handleInput(sf::RenderWindow& window){
                 isSelectGallery = false;
             }
 
-            //ÔÚÉèÖÃ°´Å¥µÄÉÏ·½
+            //åœ¨è®¾ç½®æŒ‰é’®çš„ä¸Šæ–¹
             if (settingsButton.isMouseOver(window)) {
                 settingsButton.onHover();
                 if (!isSelectSettings) {
@@ -169,7 +189,7 @@ void StateMenu::handleInput(sf::RenderWindow& window){
                 isSelectSettings = false;
             }
 
-            //ÔÚ¹ØÓÚ°´Å¥µÄÉÏ·½
+            //åœ¨å…³äºæŒ‰é’®çš„ä¸Šæ–¹
             if (aboutButton.isMouseOver(window)) {
                 aboutButton.onHover();
                 if (!isSelectAbout) {
@@ -183,7 +203,21 @@ void StateMenu::handleInput(sf::RenderWindow& window){
                 isSelectAbout = false;
             }
 
-            //ÔÚÍË³ö°´Å¥µÄÉÏ·½
+            //åœ¨æ¸¸æˆç©æ³•æŒ‰é’®çš„ä¸Šæ–¹
+            if (howToPlayButton.isMouseOver(window)) {
+                howToPlayButton.onHover();
+                if (!isSelectHowToPlay) {
+                    isSelectHowToPlay = true;
+                    audioManager.playSound("SelectButton");
+                }
+            }
+            else
+            {
+                howToPlayButton.resetColor();
+                isSelectHowToPlay = false;
+            }
+
+            //åœ¨é€€å‡ºæŒ‰é’®çš„ä¸Šæ–¹
             if (exitButton.isMouseOver(window)) {
                 exitButton.onHover();
                 if (!isSelectExit) {
@@ -203,42 +237,47 @@ void StateMenu::handleInput(sf::RenderWindow& window){
  
 }
 
-void StateMenu::update()  {
-    //¸üĞÂµ±Ç°´°¿Ú£¬Ö÷´°¿ÚÃ»ÓĞÊ²Ã´ĞèÒª¸üĞÂµÄ¡£
-    //½«µ±Ç°·¢ÉúµÄÊÂ¼ş£¨Ö÷ÒªÊÇµã»÷°´Å¥µÄÊÂ¼ş£©½øĞĞ´¦Àí£¬²¢ÇÒ·´À¡²Ù×÷µ½µ±Ç°´°¿ÚÖĞ¡£¸´Ğ´»ùÀà·½·¨¡£(Î´Íê³É)
+void StateMenu::update(float deltaTime)  {
+    //æ›´æ–°å½“å‰çª—å£ï¼Œä¸»è¦æ˜¯æ›´æ–°æ ‡é¢˜å­—
     /*
-    ¸ºÔğÈË: ²¨²¨É³
+    è´Ÿè´£äºº: æ³¢æ³¢æ²™
 
-    ¹¦ÄÜ: ÎŞ
+    åŠŸèƒ½: æ— 
 
-    ²ÎÊı:void
+    å‚æ•°:void
 
-    ·µ»ØÖµ: void
+    è¿”å›å€¼: void
     */
-    //----------------------²»ĞèÒªÊµÏÖ------------------------//
+    //----------------------ä¸éœ€è¦å®ç°------------------------//
+
+    EntityManager::getInstance()->updateEntities(deltaTime);
 }
 
 void StateMenu::draw(sf::RenderWindow& window) {
-    //äÖÈ¾£¬äÖÈ¾ËùÓĞµÄ°´Å¥ºÍ±³¾°Í¼Æ¬µÈµÈ¡£(Î´Íê³É)
+    //æ¸²æŸ“ï¼Œæ¸²æŸ“æ‰€æœ‰çš„æŒ‰é’®å’ŒèƒŒæ™¯å›¾ç‰‡ç­‰ç­‰ã€‚(æœªå®Œæˆ)
     /*
-    ¸ºÔğÈË: ²¨²¨É³
+    è´Ÿè´£äºº: æ³¢æ³¢æ²™
 
-    ¹¦ÄÜ: ÎŞ
+    åŠŸèƒ½: æ— 
 
-    ²ÎÊı:
-        sf::RenderWindow& window    //ĞèÒªäÖÈ¾µ½µÄÎ»ÖÃ
+    å‚æ•°:
+        sf::RenderWindow& window    //éœ€è¦æ¸²æŸ“åˆ°çš„ä½ç½®
 
-    ·µ»ØÖµ: void
+    è¿”å›å€¼: void
     */
-    //----------------------ÊµÏÖ------------------------//
+    //----------------------å®ç°------------------------//
 
-    //äÖÈ¾±³¾°Í¼
+    //æ¸²æŸ“èƒŒæ™¯å›¾
     window.draw(BackgroundImage);
 
-    //µ÷ÓÃ¶ÔÓ¦°´Å¥µÄäÖÈ¾·½·¨£¬½«´°¿ÚÏÂ´«¡£
+    //è°ƒç”¨å¯¹åº”æŒ‰é’®çš„æ¸²æŸ“æ–¹æ³•ï¼Œå°†çª—å£ä¸‹ä¼ ã€‚
     startButton.draw(window);
     galleryButton.draw(window);
     settingsButton.draw(window);
     aboutButton.draw(window);
+    howToPlayButton.draw(window);
     exitButton.draw(window);
+
+    //æœ€åæ¸²æŸ“æ ‡é¢˜åŠ¨ç”»
+    EntityManager::getInstance()->drawEntities(window);
 }

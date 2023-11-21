@@ -31,7 +31,7 @@ public:
 	virtual void handleInput(sf::RenderWindow& window) = 0;
 
 	//在每一帧开始时更新场景的信息。
-	virtual void update() = 0;
+	virtual void update(float deltaTime) = 0;
 
 	//渲染当前场景的所有需要渲染的对象。
 	virtual void draw(sf::RenderWindow& window) = 0;

@@ -6,6 +6,7 @@
 #include "StateManager.hpp"
 #include "AssetManager.hpp"
 #include "AudioManager.hpp"
+#include "EntityManager.hpp"
 
 
 // -------------------- 类设计 --------------------
@@ -31,7 +32,7 @@ public:
     void handleInput(sf::RenderWindow& window) override;
 
     //更新当前窗口，主窗口没有什么需要更新的。
-    void update() override;
+    void update(float deltaTime) override;
 
     //渲染，渲染所有的按钮和背景图片等等。(未完成)
     void draw(sf::RenderWindow& window) override;
@@ -51,6 +52,8 @@ private:
     Button settingsButton;
     //关于
     Button aboutButton;
+    //游戏玩法
+    Button howToPlayButton;
     //退出游戏
     Button exitButton;
 
@@ -59,6 +62,7 @@ private:
     bool isSelectGallery;
     bool isSelectSettings;
     bool isSelectAbout;
+    bool isSelectHowToPlay;
     bool isSelectExit;
 
     //...

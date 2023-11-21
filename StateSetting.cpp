@@ -2,26 +2,26 @@
 #include "StateMenu.hpp"
 
 StateSetting::StateSetting(StateManager& manager) : stateManager(manager) {
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 
-	//ËØ²Ä¹ÜÀíÆ÷µ¥Àı
+	//ç´ æç®¡ç†å™¨å•ä¾‹
 	AssetManager& assetManager = AssetManager::getInstance();
 
-	//ÉèÖÃ"ÉèÖÃ"°´Å¥µÄÎ»ÖÃµÈĞÅÏ¢¡£
-	home.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"·µ»Ø", 30);
+	//è®¾ç½®"è®¾ç½®"æŒ‰é’®çš„ä½ç½®ç­‰ä¿¡æ¯ã€‚
+	home.setFont(assetManager.getFont("SIMYOU"), sf::Color::Black, L"è¿”å›", 30);
 	home.setColor(sf::Color(200, 200, 200,150), sf::Color(100, 100, 100,150), sf::Color(150, 150, 150,150));
 	home.setPosition(50, 50, 200, 50);
 
-	//ÉèÖÃ±³¾°Í¼Æ¬
+	//è®¾ç½®èƒŒæ™¯å›¾ç‰‡
 	BackgroundImage.setTexture(assetManager.getTexture("JumkoMenu"));
-	// Ê¹Í¼Æ¬±ä°µµ«ÈÔÈ»¿É¼û
+	// ä½¿å›¾ç‰‡å˜æš—ä½†ä»ç„¶å¯è§
 	BackgroundImage.setColor(sf::Color(128, 128, 128, 255));
 
-	//³õÊ¼»¯±êÌâ
+	//åˆå§‹åŒ–æ ‡é¢˜
 	title.setFont(assetManager.getFont("simhei"));
 	title.setFillColor(sf::Color::White);
 	title.setCharacterSize(70);
-	title.setString("Settings");
+	title.setString("Seeting");
 	title.setPosition(350, 50);
 }
 
@@ -30,11 +30,11 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 	sf::Event event;
 	while (window.pollEvent(event))
 	{
-		//µ±µã»÷¹Ø±ÕÊ±¹Ø±Õ´°¿Ú
+		//å½“ç‚¹å‡»å…³é—­æ—¶å…³é—­çª—å£
 		if (event.type == sf::Event::Closed) {
 			window.close();
 		}
-		// ... ´¦Àí°´Å¥µã»÷ÊÂ¼ş£¬Ê¹ÓÃstateManager.changeState(...)
+		// ... å¤„ç†æŒ‰é’®ç‚¹å‡»äº‹ä»¶ï¼Œä½¿ç”¨stateManager.changeState(...)
 		if (event.type == sf::Event::MouseButtonPressed) {
 			if (this->home.isMouseOver(window)) {
 				this->stateManager.changeState(std::make_unique<StateMenu>(stateManager));
@@ -45,7 +45,7 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 				home.onHover();
 			}
 			else {
-				//µ±Êó±ê²»ÔÙĞüÍ£ÔÚ°´Å¥ÉÏÊ±»Ö¸´Ô­Ê¼ÑÕÉ«
+				//å½“é¼ æ ‡ä¸å†æ‚¬åœåœ¨æŒ‰é’®ä¸Šæ—¶æ¢å¤åŸå§‹é¢œè‰²
 				home.resetColor();
 			}
 		}
@@ -53,17 +53,17 @@ void StateSetting::handleInput(sf::RenderWindow& window) {
 
 }
 
-void StateSetting::update() {
-	// ... ¸üĞÂÂß¼­
+void StateSetting::update(float deltaTime) {
+	// ... æ›´æ–°é€»è¾‘
 }
 
 void StateSetting::draw(sf::RenderWindow& window) {
-	//×îÏÈäÖÈ¾±³¾°Í¼Æ¬
+	//æœ€å…ˆæ¸²æŸ“èƒŒæ™¯å›¾ç‰‡
 	window.draw(BackgroundImage);
 
-	// ... »æÖÆ°´Å¥
+	// ... ç»˜åˆ¶æŒ‰é’®
 	this->home.draw(window);
 
-	//»æÖÆÎÄ×Ö
+	//ç»˜åˆ¶æ–‡å­—
 	window.draw(this->title);
 }

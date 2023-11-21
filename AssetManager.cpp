@@ -21,6 +21,23 @@ AssetManager::AssetManager() {
 
 	//读取图片"酱可-主菜单"
 	loadTexture("JumkoMenu", "Asset/Picture/JumkoMenu.png");
+	//读取图片"主标题-酱可"
+	loadTexture("Title1", "Asset/Picture/Title1.png");
+	//读取图片"主标题-与"
+	loadTexture("Title2", "Asset/Picture/Title2.png");
+	//读取图片"主标题-危险之森"
+	loadTexture("Title3", "Asset/Picture/Title3.png");
+
+	//读取图片"玩家-酱可"
+	loadTexture("Jumko", "Asset/Picture/Jumko.png");
+	//读取图片"判定点"
+	loadTexture("HitBox", "Asset/Picture/HitBox.png");
+	//读取图片"敌人-双联装102mmSKC"
+	loadTexture("Enemy1", "Asset/Picture/EnemyTest102mm.png");
+	//读取图片"子弹-20mm圆黄弹"
+	loadTexture("Button1", "Asset/Picture/Bullet.png");
+	//读取图片"子弹-10mm椭圆灰弹"
+	loadTexture("Button2", "Asset/Picture/Bullet2.png");
 }
 
 void AssetManager::loadTexture(const std::string& name, const std::string& filename) {

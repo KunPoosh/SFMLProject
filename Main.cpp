@@ -8,6 +8,7 @@
 #include "AssetManager.hpp"
 #include "AudioManager.hpp"
 #include "SettingsManager.hpp"
+#include "EntityManager.hpp"
 
 int main() {
 	//程序入口
@@ -32,6 +33,9 @@ int main() {
 	//创建场景管理器
 	StateManager stateManager;
 
+	// 初始化EntityManager单例
+	EntityManager* entityManager = EntityManager::getInstance();
+
 	//使用音频管理器
 	AudioManager& audioManager = AudioManager::getInstance();
 
@@ -46,14 +50,19 @@ int main() {
 	//读取一次存档
 	settingsManager.loadSettings("Asset/save.txt");
 
+	//创建全局时钟
+	sf::Clock clock;
+
 	//----------------游戏主循环------------------//
 	while (window.isOpen()) {
+		//统一时间
+		float deltaTime = clock.restart().asSeconds();
 
 		//将窗口下传
 		stateManager.handleInputCurrentState(window);
 
 		//进行场景的普通的每帧更新
-		stateManager.updateCurrentState();
+		stateManager.updateCurrentState(deltaTime);
 
 		//清理播放的音效
 		audioManager.update();
